@@ -1,8 +1,188 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model BethesdaMVCEConsentForms.Models.PatientConsentMain
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<form method="POST" action="/Home/PatientConsent">
+<ul class="content">
+    <li>
+        <table class="consentTable">
+            <tbody>
+                <tr>
+                    <td colspan="5">
+                        <h3>
+                            Patient Consent Form</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>
+                            Employee ID</h4>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.EmployeeId)
+                    </td>
+                    <td colspan="3">
+                        <input type="submit" title="Login" value="Login" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td colspan="4">
+                        <label class="errorInfomodified">@Html.LabelForModel(Model.ErrorInfo)
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>
+                            Select Location</h4>
+                    </td>
+                    <td>
+                        <asp:radiobutton runat="server" id="RdoBHE" text="BHE" oncheckedchanged="RdoBHE_CheckedChanged"
+                            autopostback="True" />
+                    </td>
+                    <td colspan="3">
+                        <asp:radiobutton runat="server" id="RdoBMH" text="BHW" oncheckedchanged="RdoBMH_CheckedChanged"
+                            autopostback="True" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Patient
+                    </td>
+                    <td colspan="4">
+                        @Html.DropDownListFor(m => m.SelectedPatientID, Model.PatientsList)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        @Html.LabelForModel(Model.PatientName)
+                    </td>
+                    <td>
+                        Patient#
+                    </td>
+                    <td>
+                        @Html.LabelForModel(Model.PatientHash)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Age
+                    </td>
+                    <td>
+                        @Html.LabelForModel(Model.PatientAge)
+                    </td>
+                    <td>
+                        Gender
+                    </td>
+                    <td colspan="2">
+                        @Html.LabelForModel(Model.Gender)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        MR#
+                    </td>
+                    <td colspan="4">
+                        @Html.LabelForModel(Model.PatientMRHash)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Attending physician
+                    </td>
+                    <td colspan="4">
+                        @Html.LabelForModel(Model.AttendingPhysician)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Admission Date
+                    </td>
+                    <td colspan="4">
+                        @Html.LabelForModel(Model.AdmissionDate)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="noBorder">
+                    </td>
+                    <td colspan="4" class="noBorder">
+                        @Html.DropDownListFor(m => m.ConsentFormSelectedID, Model.ConsentFormList)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="noBorder">
+                    </td>
+                    <td colspan="4">
+                        <asp:panel runat="server" id="PnlConsentChkboxes">
+                            <ul>
+                                <li>
+                                    <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION"
+                                                  Enabled="false" />
+                                </li>
+                                <li>
+                                    <asp:CheckBox runat="server" ID="ChkCCLC" Text="CARDIOVASCULAR LABORATORY CONSENT"
+                                                  Enabled="false" />
+                                </li>
+                                <li>
+                                    <asp:CheckBox runat="server" ID="ChkORConsent" Text="CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING ROOM"
+                                                  Enabled="false" />
+                                </li>
+                                <li>
+                                    <asp:CheckBox runat="server" ID="ChkEC" Text="CONSENT FOR ENDOSCOPY" Enabled="false" />
+                                </li>
+                                <li>
+                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="CONSENT FOR TRANSFUSION OF BLOOD OR BLOOD PRODUCTS"
+                                                  Enabled="false" />
+                                </li>
+                                <li>
+                                    <asp:CheckBox runat="server" ID="ChkPA" Text="CONSENT FOR THERAPEUTIC APHERESIS"
+                                                  Enabled="false" />
+                                </li>
+                                <li>
+                                    <asp:CheckBox runat="server" ID="ChkPICCConsent" Text="AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL CATHETER (PICC)"
+                                                  Enabled="false" />
+                                </li>
+                            </ul>
+                        </asp:panel>
+                        <asp:panel runat="server" id="PnlPrintLinks" visible="False">
+                            <ul>
+                                <li><a href="Print/Surgical/Surgical.pdf">CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION</a></li>
+                                <li><a href="Print/Cardiovascular/Cardiovascular.pdf">CARDIOVASCULAR LABORATORY CONSENT</a></li>
+                                <li><a href="Print/OutsideOR/OutsideOR.pdf">CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING
+                                        ROOM</a></li>
+                                <li><a href="Print/Endoscopy/Endoscopy.pdf">ENDOSCOPY CONSENT</a></li>
+                                <li><a href="Print/BloodConsentOrRefusal/BloodConsentOrRefusal.pdf">CONSENT FOR TRANSFUSION
+                                        OF BLOOD OR BLOOD PRODUCTS</a></li>
+                                <%-- <li><a href="Print/PlasmanApheresis/PlasmanApheresis.pdf">CONSENT FOR THERAPEUTIC APHERESIS</a></li>
+                                <li><a href="Print/PICC/PICC.pdf">AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL
+                                        CATHETER (PICC)</a></li>--%>
+                            </ul>
+                        </asp:panel>
+                    </td>
+                </tr>
+                <% if (!string.IsNullOrEmpty(LblError.Text)) {%>
+                <tr>
+                    <td>
+                    </td>
+                    <td colspan="4">
+                        <asp:label runat="server" id="LblError" cssclass="errorInfomodified"></asp:label>
+                    </td>
+                </tr>
+                <% }%>
+                <tr>
+                    <td colspan="5" class="center">
+                        <asp:button runat="server" id="BtnSign" text="Sign" onclick="BtnSign_Click" />
+                        <asp:button runat="server" id="BtnReset" text="Reset" onclick="BtnReset_Click" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
+</form>

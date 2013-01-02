@@ -6,3 +6,11 @@ C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\BethesdaMVCECon
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\obj\Debug\BethesdaMVCEConsentForms.Tests.csprojResolveAssemblyReference.cache
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\obj\Debug\BethesdaMVCEConsentForms.Tests.dll
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\obj\Debug\BethesdaMVCEConsentForms.Tests.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\obj\Debug\BethesdaMVCEConsentForms.Tests.csprojResolveAssemblyReference.cache
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\obj\Debug\BethesdaMVCEConsentForms.Tests.dll
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\bin\Debug\BethesdaMVCEConsentForms.Tests.dll.config
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\bin\Debug\BethesdaMVCEConsentForms.Tests.dll
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\bin\Debug\BethesdaMVCEConsentForms.Tests.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\bin\Debug\BethesdaMVCEConsentForms.dll
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\bin\Debug\BethesdaMVCEConsentForms.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaMVCEConsentForms\BethesdaMVCEConsentForms.Tests\obj\Debug\BethesdaMVCEConsentForms.Tests.pdb

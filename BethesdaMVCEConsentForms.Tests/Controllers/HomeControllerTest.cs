@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BethesdaMVCEConsentForms;
 using BethesdaMVCEConsentForms.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BethesdaMVCEConsentForms.Tests.Controllers
 {
@@ -23,19 +23,6 @@ namespace BethesdaMVCEConsentForms.Tests.Controllers
 
             // Assert
             Assert.AreEqual("Welcome to ASP.NET MVC!", result.ViewBag.Message);
-        }
-
-        [TestMethod]
-        public void About()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
         }
     }
 }
