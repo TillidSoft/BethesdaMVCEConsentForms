@@ -56,5 +56,37 @@ namespace BethesdaMVCEConsentForms.Models
         [DataType(DataType.Text)]
         [Display(Name = "ConsentForm Selected ID")]
         public string ConsentFormSelectedID { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Surgical Consent")]
+        public bool SurgicalConsent { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Cardiovascular Consent")]
+        public bool CardioVascularConsent { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Outside Operating Room Consent")]
+        public bool OORConsent { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Endoscopy Consent")]
+        public bool EndoscopyConsent { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Blood Consent")]
+        public bool BloodConsent { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "PICC Consent")]
+        public bool PICCConsent { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "BHE")]
+        public bool BHELocation { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "BHW")]
+        public bool BHWLocation { get; set; }
     }
 }

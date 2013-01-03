@@ -9,7 +9,6 @@ namespace BethesdaMVCEConsentForms.Controllers
     {
         public ActionResult Index()
         {
-            ResetIndexView();
             var patientConsentMain = new PatientConsentMain();
             patientConsentMain.PatientsList = new SelectList(new string[0]);
             patientConsentMain.ConsentFormList = new SelectList(new string[0]);
@@ -19,17 +18,30 @@ namespace BethesdaMVCEConsentForms.Controllers
         [HttpPost]
         public ActionResult PatientConsent(PatientConsentMain patientConsentMain)
         {
-            ResetIndexView();
             LoadPatients(Request.Form["RdoLocation"]);
             if (!string.IsNullOrEmpty(patientConsentMain.EmployeeId))
             {
                 var consentFormSvcClient = new ConsentFormSvcClient();
                 if (consentFormSvcClient.IsValidEmployee(patientConsentMain.EmployeeId))
+                {
                     ViewBag.Loggedin = true;
+                    var patientDetails = consentFormSvcClient.GetPatientfromLocation(patientConsentMain.BHELocation ? "BHE" : "BHW");
+                    foreach (DataRow patientDetail in patientDetails.Rows)
+                    {
+                    }
+                    if (string.IsNullOrEmpty(patientConsentMain.SelectedPatientID))
+                    {
+                    }
+                }
                 else
-                    ViewBag.error = "Invalid employee id entered!";
+                {
+                    patientConsentMain.ErrorInfo = "Invalid employee id entered!";
+                    ResetIndexView(patientConsentMain);
+                }
             }
-            return View("Index");
+            patientConsentMain.PatientsList = new SelectList(new string[0]);
+            patientConsentMain.ConsentFormList = new SelectList(new string[0]);
+            return View("Index", patientConsentMain);
         }
 
         private void LoadPatients(string patientLocation)
@@ -41,19 +53,22 @@ namespace BethesdaMVCEConsentForms.Controllers
             }
         }
 
-        private void ResetIndexView()
+        private void ResetIndexView(PatientConsentMain patientConsentMain)
         {
-            ViewBag.Loggedin = false;
-            ViewBag.Patients = new DataTable().Rows;
-            ViewBag.error = string.Empty;
-            ViewBag.EmployeeID = string.Empty;
-            ViewBag.PatientName = string.Empty;
-            ViewBag.PatientHash = string.Empty;
-            ViewBag.PatientAge = string.Empty;
-            ViewBag.PatientGender = string.Empty;
-            ViewBag.PatientMRHash = string.Empty;
-            ViewBag.PatientAttendingPhysician = string.Empty;
-            ViewBag.PatientAdmissionDate = string.Empty;
+            patientConsentMain.AdmissionDate = string.Empty;
+            patientConsentMain.AttendingPhysician = string.Empty;
+            patientConsentMain.BloodConsent = false;
+            patientConsentMain.CardioVascularConsent = false;
+            patientConsentMain.EmployeeId = string.Empty;
+            patientConsentMain.EndoscopyConsent = false;
+            patientConsentMain.Gender = string.Empty;
+            patientConsentMain.OORConsent = false;
+            patientConsentMain.PICCConsent = false;
+            patientConsentMain.PatientAge = string.Empty;
+            patientConsentMain.PatientHash = string.Empty;
+            patientConsentMain.PatientMRHash = string.Empty;
+            patientConsentMain.PatientName = string.Empty;
+            patientConsentMain.SurgicalConsent = false;
         }
     }
 }

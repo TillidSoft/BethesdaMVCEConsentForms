@@ -7,11 +7,11 @@
     <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Views/f:_ViewStart.cshtml" caret="52" fromTop="2" />
     <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Models/f:AccountModels.cs" caret="448" fromTop="13" />
     <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Content/f:ConsentForm.css" caret="0" fromTop="0" />
-    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Scripts/f:Signature.js" caret="0" fromTop="0" />
     <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/f:LabelExtensions.cs" caret="1124" fromTop="35" />
-    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Models/f:PatientConsentMain.cs" caret="1700" fromTop="24" />
-    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Controllers/f:HomeController.cs" caret="1115" fromTop="28" />
-    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Views/d:Home/f:Index.cshtml" caret="630" fromTop="17" />
+    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Scripts/f:Signature.js" caret="412" fromTop="12" />
+    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Controllers/f:HomeController.cs" caret="1284" fromTop="29" />
+    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Views/d:Home/f:Index.cshtml" caret="2064" fromTop="29" />
+    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Models/f:PatientConsentMain.cs" caret="2779" fromTop="32" />
   </RecentFiles>
   <RecentEdits>
     <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Controllers/f:AccountController.cs" caret="335" fromTop="14" />
@@ -20,8 +20,8 @@
     <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Content/f:ConsentForm.css" caret="0" fromTop="0" />
     <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Models/f:AccountModels.cs" caret="907" fromTop="25" />
     <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/f:LabelExtensions.cs" caret="1141" fromTop="22" />
-    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Models/f:PatientConsentMain.cs" caret="1831" fromTop="27" />
-    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Views/d:Home/f:Index.cshtml" caret="855" fromTop="22" />
-    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Controllers/f:HomeController.cs" caret="1045" fromTop="23" />
+    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Views/d:Home/f:Index.cshtml" caret="1797" fromTop="12" />
+    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Models/f:PatientConsentMain.cs" caret="2872" fromTop="35" />
+    <File id="0D306CE3-1D0B-41E1-A9AB-F04BDFE91FDA/d:Controllers/f:HomeController.cs" caret="1307" fromTop="21" />
   </RecentEdits>
 </RecentFiles>

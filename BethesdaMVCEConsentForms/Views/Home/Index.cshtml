@@ -14,38 +14,49 @@
                             Patient Consent Form</h3>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <h4>
-                            Employee ID</h4>
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(m => m.EmployeeId)
-                    </td>
-                    <td colspan="3">
-                        <input type="submit" title="Login" value="Login" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td colspan="4">
-                        <label class="errorInfomodified">@Html.LabelForModel(Model.ErrorInfo)
-                        </label>
-                    </td>
-                </tr>
+                @if (!ViewBag.Loggedin)
+                {
+                    <tr>
+                        <td>
+                            <h4>
+                                Employee ID</h4>
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.EmployeeId)
+                        </td>
+                        <td colspan="3">
+                            <input type="submit" title="Login" value="Login" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td colspan="4">
+                            <label class="errorInfomodified">@Model.ErrorInfo
+                            </label>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">
+                            @Html.HiddenFor(m => m.EmployeeId)
+                        </td>
+                    </tr>
+                }
                 <tr>
                     <td>
                         <h4>
                             Select Location</h4>
                     </td>
                     <td>
-                        <asp:radiobutton runat="server" id="RdoBHE" text="BHE" oncheckedchanged="RdoBHE_CheckedChanged"
-                            autopostback="True" />
+                        <input type="checkbox" onclick="document.form.submit();" />
+                        BHE
                     </td>
                     <td colspan="3">
-                        <asp:radiobutton runat="server" id="RdoBMH" text="BHW" oncheckedchanged="RdoBMH_CheckedChanged"
-                            autopostback="True" />
+                        <input type="checkbox" onclick="document.form.submit();" />
+                        BHW
                     </td>
                 </tr>
                 <tr>
@@ -53,7 +64,7 @@
                         Patient
                     </td>
                     <td colspan="4">
-                        @Html.DropDownListFor(m => m.SelectedPatientID, Model.PatientsList)
+                        @Html.DropDownListFor(m => m.SelectedPatientID, Model.PatientsList, new { id = "DdlPatientSelection" })
                     </td>
                 </tr>
                 <tr>
@@ -119,51 +130,42 @@
                     <td class="noBorder">
                     </td>
                     <td colspan="4">
-                        <asp:panel runat="server" id="PnlConsentChkboxes">
+                        <div id="PnlConsentChkboxes">
                             <ul>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION"
-                                                  Enabled="false" />
-                                </li>
+                                    @Html.CheckBoxFor(m => m.SurgicalConsent)
+                                    CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkCCLC" Text="CARDIOVASCULAR LABORATORY CONSENT"
-                                                  Enabled="false" />
-                                </li>
+                                    @Html.CheckBoxFor(m => m.CardioVascularConsent)
+                                    CARDIOVASCULAR LABORATORY CONSENT </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkORConsent" Text="CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING ROOM"
-                                                  Enabled="false" />
-                                </li>
+                                    @Html.CheckBoxFor(m => m.OORConsent)
+                                    CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING ROOM </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkEC" Text="CONSENT FOR ENDOSCOPY" Enabled="false" />
-                                </li>
+                                    @Html.CheckBoxFor(m => m.EndoscopyConsent)
+                                    CONSENT FOR ENDOSCOPY </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="CONSENT FOR TRANSFUSION OF BLOOD OR BLOOD PRODUCTS"
-                                                  Enabled="false" />
-                                </li>
+                                    @Html.CheckBoxFor(m => m.BloodConsent)
+                                    CONSENT FOR TRANSFUSION OF BLOOD OR BLOOD PRODUCTS </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkPA" Text="CONSENT FOR THERAPEUTIC APHERESIS"
-                                                  Enabled="false" />
-                                </li>
+                                    @Html.CheckBoxFor(m => m.BloodConsent)
+                                    CONSENT FOR THERAPEUTIC APHERESIS </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkPICCConsent" Text="AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL CATHETER (PICC)"
-                                                  Enabled="false" />
-                                </li>
+                                    @Html.CheckBoxFor(m => m.PICCConsent)
+                                    AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL CATHETER (PICC) </li>
                             </ul>
-                        </asp:panel>
-                        <asp:panel runat="server" id="PnlPrintLinks" visible="False">
+                        </div>
+                        <div id="PnlPDFLinks">
                             <ul>
-                                <li><a href="Print/Surgical/Surgical.pdf">CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION</a></li>
-                                <li><a href="Print/Cardiovascular/Cardiovascular.pdf">CARDIOVASCULAR LABORATORY CONSENT</a></li>
-                                <li><a href="Print/OutsideOR/OutsideOR.pdf">CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING
-                                        ROOM</a></li>
-                                <li><a href="Print/Endoscopy/Endoscopy.pdf">ENDOSCOPY CONSENT</a></li>
-                                <li><a href="Print/BloodConsentOrRefusal/BloodConsentOrRefusal.pdf">CONSENT FOR TRANSFUSION
-                                        OF BLOOD OR BLOOD PRODUCTS</a></li>
-                                <%-- <li><a href="Print/PlasmanApheresis/PlasmanApheresis.pdf">CONSENT FOR THERAPEUTIC APHERESIS</a></li>
-                                <li><a href="Print/PICC/PICC.pdf">AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL
-                                        CATHETER (PICC)</a></li>--%>
+                                <li><a href="/BlankPDFs/Surgical.pdf">CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION</a></li>
+                                <li><a href="/BlankPDFs/Cardiovascular.pdf">CARDIOVASCULAR LABORATORY CONSENT</a></li>
+                                <li><a href="/BlankPDFs/OutsideOR.pdf">CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING
+                                    ROOM</a></li>
+                                <li><a href="/BlankPDFs/Endoscopy.pdf">ENDOSCOPY CONSENT</a></li>
+                                <li><a href="/BlankPDFs/BloodConsentOrRefusal.pdf">CONSENT FOR TRANSFUSION OF BLOOD
+                                    OR BLOOD PRODUCTS</a></li>
                             </ul>
-                        </asp:panel>
+                        </div>
                     </td>
                 </tr>
                 <% if (!string.IsNullOrEmpty(LblError.Text)) {%>
